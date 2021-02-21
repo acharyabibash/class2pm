@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from .models import Contact,ContactInformation
+from .models import Contact,ContactInformation,Testonomial
 # Create your views here.
 def home(request):
-    return render(request,'index.html')
+    view = {}
+    view['reviews'] = Testonomial.objects.all()
+    return render(request,'index.html',view)
     
 def about(request):
     return render(request,'about.html')
