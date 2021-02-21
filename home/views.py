@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Contact
+from .models import Contact,ContactInformation
 # Create your views here.
 def home(request):
     return render(request,'index.html')
@@ -18,6 +18,7 @@ def services(request):
 
 
 def contact(request):
+    view = {}
     if request.method == "POST":
         name = request.POST['name']
         email = request.POST['email']
@@ -31,5 +32,7 @@ def contact(request):
             message=message    
         )
         data.save()
-
-    return render(request, 'contact.html')
+        view['sucess']= "The message is submitted."
+    
+    view['info']= ContactInformation.objects.all()
+    return render(request, 'contact.html',view)

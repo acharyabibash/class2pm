@@ -9,3 +9,23 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+
+class ContactInformation(models.Model):
+    address = models.CharField(max_length=300)
+    tole = models.CharField(max_length=300)
+    contact_no = models.CharField(max_length=300)
+    time = models.CharField(max_length=300)
+    email = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.address
+
+class Testonomial(models.Model):
+    address = models.CharField(max_length=300)
+    tole = models.CharField(max_length=300)
+    contact_no = models.CharField(max_length=300)
+    time = models.CharField(max_length=300)
+    email = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.name
